@@ -10,6 +10,7 @@ public class Ticket {
     private int timeOut;
     private String paymentAmount;
     private boolean ticketLost;
+    private PaymentList payList;
     public Ticket(LocalDate dateIn, int timeIn, boolean sameDate, int timeOut, boolean ticketLost){
         this.dateIn = dateIn;
 
@@ -28,16 +29,23 @@ public class Ticket {
         if(dateOut == dateIn && !ticketLost){
             int timeDifference = timeOut - timeIn;
             if(timeDifference <= 3){
+                PaymentList.addPaymentToList(5.00,"check");
                 return defaultFormat.format(5.00);
             }else{
                 int chargeHours = timeDifference - 3;
                 double totalCharge = 5.00;
+                PaymentList.addPaymentToList(totalCharge + chargeHours,"check");
                 return defaultFormat.format(totalCharge + chargeHours);
             }
         }else if(dateIn.compareTo(dateOut) > 0 && !ticketLost){
+            PaymentList.addPaymentToList(15.00,"check");
             return defaultFormat.format(15.00);
         }
+        PaymentList.addPaymentToList(25.00,"check");
         return defaultFormat.format(25.00);
+    }
+    public void addPayToList(){
+
     }
     public LocalDate getDateIn(){
         return dateIn;
