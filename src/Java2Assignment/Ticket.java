@@ -11,8 +11,6 @@ public class Ticket {
     private String paymentAmount;
     private boolean ticketLost;
     public Ticket(LocalDate dateIn, int timeIn, boolean sameDate, int timeOut, boolean ticketLost){
-       // this.dateIn = MachineIn.userRandomDate(2012, 2020);
-        //this.timeIn = MachineIn.IntBetween(11, 13);
         this.dateIn = dateIn;
 
         this.timeIn = timeIn;
@@ -57,7 +55,7 @@ public class Ticket {
         return paymentAmount;
     }
 
-    public static LocalDate userRandomDate(int startYear, int endYear) {
+    /*public static LocalDate userRandomDate(int startYear, int endYear) {
         int day = IntBetween(1, 28);
         int month = IntBetween(1, 12);
         int year = IntBetween(startYear, endYear);
@@ -66,7 +64,7 @@ public class Ticket {
 
     private static int IntBetween(int start, int end) {
         return start + (int) Math.round(Math.random() * (end - start));
-    }
+    }*/
 
     /*public void clockIn(){
         MachineIn inClock = new MachineIn();

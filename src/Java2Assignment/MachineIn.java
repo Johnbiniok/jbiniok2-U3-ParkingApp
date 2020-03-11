@@ -31,10 +31,7 @@ public class MachineIn {
     }
     public static boolean sameDay(){
         int randomDay = (int)(Math.random() * (2 - 1 + 1) + 1);
-        if (randomDay == 2) {
-            return false;
-        }
-        return true;
+        return randomDay != 2;
     }
 
 }

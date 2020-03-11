@@ -16,7 +16,7 @@ public class TicketList {
     }
 
     public static void addTicketToList(boolean lostTicket){
-        ticketList.add(new Ticket(MachineIn.userRandomDate(2012, 2020), MachineIn.IntBetween(11, 13), MachineIn.sameDay(), MachineIn.IntBetween(13, 23), lostTicket));
+        ticketList.add(new Ticket(MachineIn.userRandomDate(2012, 2020), MachineIn.IntBetween(7, 12), MachineIn.sameDay(), MachineIn.IntBetween(13, 23), lostTicket));
     }
     public static TicketList getTickets() {
         if (instance == null) {

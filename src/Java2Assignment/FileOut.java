@@ -1,4 +1,4 @@
 package Java2Assignment;
 
-public class FileAppend {
+public class FileOut {
 }

@@ -6,7 +6,6 @@ public class UserInterface {
     public static boolean inGarage = false;
     private static Scanner keyboard = new Scanner(System.in);
     private static UserInterface instance = null;
-    private static Ticket userTicket;
     private UserInterface(){
 
     }
