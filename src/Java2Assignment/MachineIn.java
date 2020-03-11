@@ -3,15 +3,15 @@ package Java2Assignment;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class MachineIn {
+public abstract class MachineIn {
     private LocalDate dateIn;
     private int timeIn;
     public MachineIn() {
 
     }
 
-    public MachineIn(LocalDate dateIn, int timeIn) {
-    }
+    //public MachineIn(LocalDate dateIn, int timeIn) {
+    //}
 
     public LocalDate getDateIn() {
         return dateIn;
