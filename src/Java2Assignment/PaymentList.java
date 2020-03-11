@@ -20,4 +20,10 @@ public class PaymentList {
             totalPayments.add(new Payment(payAmt, payType));
         }
     }
+
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

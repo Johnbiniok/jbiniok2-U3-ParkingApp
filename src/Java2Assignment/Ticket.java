@@ -41,7 +41,7 @@ public class Ticket {
             PaymentList.addPaymentToList(15.00,"check");
             return defaultFormat.format(15.00);
         }
-        PaymentList.addPaymentToList(25.00,"check");
+        PaymentList.addPaymentToList(25.00,"lost");
         return defaultFormat.format(25.00);
     }
     public void addPayToList(){
