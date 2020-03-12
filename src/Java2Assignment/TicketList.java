@@ -1,12 +1,12 @@
 package Java2Assignment;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TicketList {
     private static List<Ticket> ticketList = new ArrayList<>();
     private static TicketList instance = null;
-
     private TicketList(){
 
     }
@@ -23,6 +23,10 @@ public class TicketList {
             instance = new TicketList();
         }
         return instance;
+    }
+    public static void listToFile() throws IOException {
+        PaymentList.payData();
+        FileWrite fw = new FileWrite(ticketList);
     }
 
 }

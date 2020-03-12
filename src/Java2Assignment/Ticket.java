@@ -25,8 +25,11 @@ public class Ticket {
         this.ticketLost = ticketLost;
     }
     public String determinePayment(){
-        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
-        if(dateOut == dateIn && !ticketLost){
+       NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+       if(ticketLost){
+           PaymentList.addPaymentToList(25.00, "lost");
+           return defaultFormat.format(25.00);
+       }else if(dateOut.compareTo(dateIn) == 0){
             int timeDifference = timeOut - timeIn;
             if(timeDifference <= 3){
                 PaymentList.addPaymentToList(5.00,"check");
@@ -37,12 +40,11 @@ public class Ticket {
                 PaymentList.addPaymentToList(totalCharge + chargeHours,"check");
                 return defaultFormat.format(totalCharge + chargeHours);
             }
-        }else if(dateIn.compareTo(dateOut) > 0 && !ticketLost){
-            PaymentList.addPaymentToList(15.00,"check");
-            return defaultFormat.format(15.00);
-        }
-        PaymentList.addPaymentToList(25.00,"lost");
-        return defaultFormat.format(25.00);
+        }else if(dateOut.compareTo(dateIn) > 0) {
+           PaymentList.addPaymentToList(15.00, "check");
+           return defaultFormat.format(15.00);
+       }
+        return "There was an error somewhere";
     }
     public void addPayToList(){
 
@@ -62,6 +64,7 @@ public class Ticket {
     public String getPaymentAmount(){
         return paymentAmount;
     }
+
 
     /*public static LocalDate userRandomDate(int startYear, int endYear) {
         int day = IntBetween(1, 28);

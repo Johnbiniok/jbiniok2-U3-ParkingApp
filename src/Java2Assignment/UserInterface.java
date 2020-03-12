@@ -2,14 +2,14 @@ package Java2Assignment;
 
 import java.util.Scanner;
 
-public class UserInterface {
-    public static boolean inGarage = false;
+class UserInterface {
+    private static boolean inGarage = false;
     private static Scanner keyboard = new Scanner(System.in);
     private static UserInterface instance = null;
     private UserInterface(){
 
     }
-    public static UserInterface getUserInterface() {
+    static UserInterface getUserInterface() {
         if (instance == null) {
             instance = new UserInterface();
         }
@@ -20,7 +20,7 @@ public class UserInterface {
      * if they are not in the garage, run program to start garage/ticket, if they are then run to close garage/ticket
      * @return the users choice of start ticket, close ticket, or close garage(1-3)
      */
-    public int uiMenu(){
+    int uiMenu(){
         int currentChoice;
         if(!inGarage){
             displayIn();
@@ -38,20 +38,20 @@ public class UserInterface {
      * find if the car is inside or outside of the garage
      * @return true if in the garage and false if not
      */
-    public static boolean isInGarage(){
+    static boolean isInGarage(){
         return inGarage;
     }
-    public static void setInGarage(){
+    static void setInGarage(){
         inGarage = true;
     }
-    public static void setOutGarage(){
+    static void setOutGarage(){
         inGarage = false;
     }
 
     /**
      * message to be displayed every time
      */
-    public void startMessage(){
+    private void startMessage(){
         System.out.println("Welcome to park-o-mania");
     }
 
@@ -72,6 +72,7 @@ public class UserInterface {
         System.out.println("1. Check Out");
         System.out.println("2. Lost Ticket");
     }
+
 
 
 

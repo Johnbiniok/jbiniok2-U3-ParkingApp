@@ -10,9 +10,6 @@ public abstract class MachineIn {
 
     }
 
-    //public MachineIn(LocalDate dateIn, int timeIn) {
-    //}
-
     public LocalDate getDateIn() {
         return dateIn;
     }
