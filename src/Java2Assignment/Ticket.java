@@ -21,8 +21,8 @@ public class Ticket {
         }else{
             this.dateOut = dateIn.plusDays(1);
         }
-        this.paymentAmount = determinePayment();
         this.ticketLost = ticketLost;
+        this.paymentAmount = determinePayment();
     }
     public String determinePayment(){
        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();

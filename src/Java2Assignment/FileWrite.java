@@ -18,7 +18,7 @@ public class FileWrite {
             }else{
                 morningNoon = "A.M.";
             }
-            writeFile.write(t.getTimeIn() + morningNoon + ", " + t.getDateIn() + ", " + t.getTimeOut() + "P.M., " + t.getDateOut() + ", " + t.getPaymentAmount() + ", " + t.getLostTicket() + "\r\n");
+            writeFile.write(t.getTimeIn() + morningNoon + "      " + t.getDateIn() + "     " + t.getTimeOut() + "P.M.   " + t.getDateOut() + "      " + t.getPaymentAmount() + "         " + t.getLostTicket() + "\r\n");
         }
         writeFile.close();
         toFile.close();
