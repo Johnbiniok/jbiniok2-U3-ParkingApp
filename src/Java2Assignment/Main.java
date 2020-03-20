@@ -12,9 +12,7 @@ public class Main {
      * run the loop for user interface and in/out
      */
     private static void runApplication() throws IOException {
-        //TicketList userTick = TicketList.getTickets();
         UserInterface ui = UserInterface.getUserInterface();
-        //List<Ticket> ticketList = new List<userTick>();
         int userChoice = 0;
         do {
             userChoice = ui.uiMenu();
@@ -32,6 +30,8 @@ public class Main {
         }while(userChoice != 3);
         //upload to the file
         TicketList.listToFile();
+        //write all from file to console
+        FileOut.writeWholeFile();
         //if the loop is exited then exit the program
         System.exit(1);
     }

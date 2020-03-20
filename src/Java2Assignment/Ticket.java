@@ -64,7 +64,7 @@ public class Ticket {
     public String getPaymentAmount(){
         return paymentAmount;
     }
-
+    public boolean getLostTicket(){return ticketLost;}
 
     /*public static LocalDate userRandomDate(int startYear, int endYear) {
         int day = IntBetween(1, 28);
