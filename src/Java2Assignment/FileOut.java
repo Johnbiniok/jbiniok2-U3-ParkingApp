@@ -5,10 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * abstract class to output file contents into the console
+ */
 public abstract class FileOut {
     public FileOut() throws IOException {
 
     }
+
+    /**
+     * method to write the whole file to the console
+     * @throws FileNotFoundException
+     */
     public static void writeWholeFile() throws FileNotFoundException {
         try (BufferedReader readFile = new BufferedReader(new FileReader(FileWrite.getFileName()))) {
             String currentLine;

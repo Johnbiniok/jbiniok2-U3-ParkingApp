@@ -5,6 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * class to write the ticket list to a file
+ */
 public class FileWrite {
     private static String fileName = "ticketFile.txt";
     //private String fileName = "ticketFile.txt";
@@ -23,6 +26,11 @@ public class FileWrite {
         writeFile.close();
         toFile.close();
     }
+
+    /**
+     * use for another way to make sure the file is the same
+     * @return fileName
+     */
     public static String getFileName(){
         return fileName;
     }

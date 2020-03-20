@@ -11,6 +11,15 @@ public class Ticket {
     private String paymentAmount;
     private boolean ticketLost;
     private PaymentList payList;
+
+    /**
+     *
+     * @param dateIn ticket start date
+     * @param timeIn ticket start time
+     * @param sameDate boolean to find if it is the same date or not
+     * @param timeOut ticket out time
+     * @param ticketLost boolean for if the ticket is lost
+     */
     public Ticket(LocalDate dateIn, int timeIn, boolean sameDate, int timeOut, boolean ticketLost){
         this.dateIn = dateIn;
 
@@ -24,30 +33,41 @@ public class Ticket {
         this.ticketLost = ticketLost;
         this.paymentAmount = determinePayment();
     }
+
+    /**
+     * method to determine how much the payment will be
+     * @return a string of the payment amount that is formatted
+     */
     public String determinePayment(){
+        double min = 5.00;
+        double max = 25.00;
+        double med = 15.00;
+        int timeDifference = timeOut - timeIn;
        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
        if(ticketLost){
-           PaymentList.addPaymentToList(25.00, "lost");
-           return defaultFormat.format(25.00);
+           PaymentList.addPaymentToList(max, "lost");
+           return defaultFormat.format(max);
        }else if(dateOut.compareTo(dateIn) == 0){
-            int timeDifference = timeOut - timeIn;
             if(timeDifference <= 3){
-                PaymentList.addPaymentToList(5.00,"check");
-                return defaultFormat.format(5.00);
+                PaymentList.addPaymentToList(min,"check");
+                return defaultFormat.format(min);
             }else{
                 int chargeHours = timeDifference - 3;
                 double totalCharge = 5.00;
-                PaymentList.addPaymentToList(totalCharge + chargeHours,"check");
-                return defaultFormat.format(totalCharge + chargeHours);
+                double chargeCheck = totalCharge + chargeHours;
+                if(chargeCheck <= med) {
+                    PaymentList.addPaymentToList(chargeCheck, "check");
+                    return defaultFormat.format(chargeCheck);
+                }else{
+                    PaymentList.addPaymentToList(med, "check");
+                    return defaultFormat.format(med);
+                }
             }
         }else if(dateOut.compareTo(dateIn) > 0) {
-           PaymentList.addPaymentToList(15.00, "check");
-           return defaultFormat.format(15.00);
+           PaymentList.addPaymentToList(med, "check");
+           return defaultFormat.format(med);
        }
         return "There was an error somewhere";
-    }
-    public void addPayToList(){
-
     }
     public LocalDate getDateIn(){
         return dateIn;

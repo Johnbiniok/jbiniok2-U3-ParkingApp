@@ -4,11 +4,20 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * abstract class that controls a list of payments
+ * list for all payments, check in-check out payments, and lost ticket payments
+ */
 public abstract class PaymentList {
     private static List<Payment> totalPayments = new ArrayList<>();
     private static List<Payment> checkInPay = new ArrayList<>();
     private static List<Payment> lostTickPay = new ArrayList<>();
 
+    /**
+     *
+     * @param payAmt
+     * @param payType
+     */
     public static void addPaymentToList(double payAmt, String payType){
         if(payType.equals("check")){
             checkInPay.add(new Payment(payAmt, payType));
@@ -19,7 +28,6 @@ public abstract class PaymentList {
     }
 
     public static String paySum(List<Payment> listName) {
-
         int sum = 0;
         for (Payment i: listName) sum += i.getPayAmt();
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
