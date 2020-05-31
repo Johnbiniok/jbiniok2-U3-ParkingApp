@@ -52,7 +52,7 @@ class UserInterface {
      * message to be displayed every time
      */
     private void startMessage(){
-        System.out.println("Welcome to park-o-mania");
+        System.out.println("Welcome to " + StartUp.getGarageName());
     }
 
     /**
@@ -61,6 +61,7 @@ class UserInterface {
     private void displayIn(){
         startMessage();
         System.out.println("1. Check In");
+        System.out.println("2. Special Event");
         System.out.println("3. Close Garage");
     }
 

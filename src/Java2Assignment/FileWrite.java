@@ -1,8 +1,6 @@
 package Java2Assignment;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -10,9 +8,14 @@ import java.util.List;
  */
 public class FileWrite {
     private static String fileName = "ticketFile.txt";
-    //private String fileName = "ticketFile.txt";
+
+    /**
+     *
+     * @param ticketList pass in list to add to the file
+     * @throws IOException
+     */
     public FileWrite(List<Ticket> ticketList) throws IOException {
-        FileWriter toFile = new FileWriter(fileName);
+        FileWriter toFile = new FileWriter(fileName, true);
         BufferedWriter writeFile = new BufferedWriter(toFile);
         for(Ticket t: ticketList){
             String morningNoon;
@@ -21,7 +24,7 @@ public class FileWrite {
             }else{
                 morningNoon = "A.M.";
             }
-            writeFile.write(t.getTimeIn() + morningNoon + "      " + t.getDateIn() + "     " + t.getTimeOut() + "P.M.   " + t.getDateOut() + "      " + t.getPaymentAmount() + "         " + t.getLostTicket() + "\r\n");
+            writeFile.write(t.getTicketID() + "," + t.getTimeIn() + morningNoon + "," + t.getDateIn() + "," + t.getTimeOut() + "P.M.," + t.getDateOut() + "," + TicketList.getPaymentAmount() + "," + t.getLostTicket() + "\r\n");
         }
         writeFile.close();
         toFile.close();
